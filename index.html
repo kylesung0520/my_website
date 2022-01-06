@@ -23,6 +23,21 @@
     var leftPressed = false;
     var upPressed = false;
     var downPressed = false;
+    var brickRowCount = 2;
+    var brickColumnCount = 3;
+    var brickWidth = 267;
+    var brickHeight = 200;
+    var brickPadding = 200;
+    var brickOffsetTop = 0;
+    var brickOffsetLeft = 0;
+
+    var bricks = [];
+    for(var c=0; c<brickColumnCount; c++) {
+        bricks[c] = [];
+        for(var r=0; r<brickRowCount; r++) {
+            bricks[c][r] = { x: 0, y: 0 };
+        }
+    }
 
     document.addEventListener("keydown", keyDownHandler, false);
     document.addEventListener("keyup", keyUpHandler, false);
@@ -55,6 +70,18 @@
             downPressed = false;
         }
     }
+
+    function collisionDetection() {
+        for(var c=0; c<brickColumnCount; c++) {
+            for(var r=0; r<brickRowCount; r++) {
+                var b = bricks[c][r];
+                if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+                    dy = -dy;
+                }
+            }
+        }
+    }
+
     function drawPaddle() {
         ctx.beginPath();
         ctx.rect(paddleX, paddleY, paddleWidth, paddleHeight);
@@ -63,9 +90,27 @@
         ctx.closePath();
     }
 
+    function drawBricks() {
+        for(var c=0; c<brickColumnCount; c++) {
+            for(var r=0; r<brickRowCount; r++) {
+                var brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
+                var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
+                bricks[c][r].x = brickX;
+                bricks[c][r].y = brickY;
+                ctx.beginPath();
+                ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                ctx.fillStyle = "#0095DD";
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+    }
+
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawPaddle();
+        //collisionDetection();
+        drawBricks();
 
         if(rightPressed && paddleX < canvas.width-paddleWidth) {
             paddleX += 3;
