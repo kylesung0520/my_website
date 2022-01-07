@@ -25,11 +25,11 @@
     var downPressed = false;
     var brickRowCount = 2;
     var brickColumnCount = 3;
-    var brickWidth = 267;
-    var brickHeight = 200;
-    var brickPadding = 200;
-    var brickOffsetTop = 0;
-    var brickOffsetLeft = 0;
+    // var brickWidth = 267;
+    // var brickHeight = 200;
+    // var brickPadding = 200;
+    // var brickOffsetTop = 0;
+    // var brickOffsetLeft = 0;
 
     var bricks = [];
     for(var c=0; c<brickColumnCount; c++) {
@@ -90,6 +90,13 @@
         ctx.closePath();
     }
 
+    // var brickRowCount = 2;
+    // var brickColumnCount = 3;
+    var brickWidth = 267;
+    var brickHeight = 200;
+    var brickPadding = 200;
+    var brickOffsetTop = 0;
+    var brickOffsetLeft = 0;
     function drawBricks() {
         for(var c=0; c<brickColumnCount; c++) {
             for(var r=0; r<brickRowCount; r++) {
@@ -113,16 +120,44 @@
         drawBricks();
 
         if(rightPressed && paddleX < canvas.width-paddleWidth) {
-            paddleX += 3;
+            if(paddleY >= 200 && paddleY <= 370){
+                paddleX += 2;
+            }
+            else{
+                if((paddleX >= 267 && paddleX+2 <= 457) || (paddleX >= 734 && paddleX+2 <= 924)){
+                    paddleX += 2;
+                }
+            }
         }
         else if(leftPressed && paddleX > 0) {
-            paddleX -= 3;
+            if(paddleY > 200 && paddleY < 370){
+                paddleX -= 2;
+            }
+            else{
+                if((paddleX-2 >= 267 && paddleX <= 457) || (paddleX-2 >= 734 && paddleX <= 924)){
+                    paddleX -= 2;
+                }
+            }
         }
         else if(upPressed && paddleY > 0) {
-            paddleY -= 3;
+            if((paddleX >= 267 && paddleX <= 457) || (paddleX >= 734 && paddleX <= 924)){
+                paddleY -= 3;
+            }
+            else{
+                if(paddleY - 3 >= 200){
+                    paddleY -=3 ;
+                }
+            }
         }
         else if(downPressed && paddleY < canvas.height-paddleHeight) {
-            paddleY += 3;
+            if((paddleX >= 267 && paddleX <= 457) || (paddleX >= 734 && paddleX <= 924)){
+                paddleY += 3;
+            }
+            else{
+                if(paddleY + 3 <= 370){
+                    paddleY +=3 ;
+                }
+            }
         }
     }
 
