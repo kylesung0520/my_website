@@ -1,0 +1,346 @@
+body {
+    margin: 0;
+    min-widht:1280px;
+}
+h1{
+    font-size: 250%;
+}
+a{
+    color: black;
+}
+/*Navigation bar*/
+.navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 8rem;
+    background-color: white;
+    position: fixed;
+    height: 80%;
+    overflow: auto;
+}
+
+button{
+    margin: 0;
+    background-color: white;
+    width: 100%;
+    display: block;
+    color: #000;
+    padding: 25px;
+    font-size: 15px;
+    text-decoration: none;
+    border:0;
+}
+
+button:hover, button:focus{
+    font-weight: bold;
+    outline:none;
+}
+
+.dropbtn {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    border: none;
+}
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+
+/*Content main place*/
+.main_place{
+    margin:0;
+    width: 80%;
+    height: 50%;
+    position: fixed;
+    margin: auto;
+    left: 5%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/*Home Section*/
+.home{
+    text-align: center;
+}
+.socials{
+    margin-top: 3rem;
+}
+.socials a{
+    color: black;
+    padding-left: 2rem;
+    padding-right: 3rem;
+}
+
+/*About Section*/
+.about{
+    margin: 0;
+    width: 85%;
+    height: 90%;
+    position: fixed;
+    margin: auto;
+    left: 10%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+img{
+    margin-left: 10%;
+    float: left;
+    height: 200px;
+    width: 200px;
+}
+
+ul{
+    float: left;
+}
+li{
+    line-height: 330%;
+}
+
+.about-column1{
+    float: left;
+    width: 22%;
+    padding: 10px;
+}
+.about-column2{
+    float: left;
+    width: 78%;
+}
+.skills-column{
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+/*Experience Section*/
+.experience{
+    margin: 0;
+    width: 85%;
+    height: 90%;
+    position: fixed;
+    margin: auto;
+    left: 10%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.experience-column1{
+    float: left;
+    width: 15%;
+    padding: 10px;
+}
+.experience-column2{
+    float: left;
+    width: 35%;
+}
+.experience-ul {
+    padding-left: 35px;
+    padding-top: 15px;
+    margin-left: 50px;
+}
+.experience-li{
+    line-height: 250%;
+    font-style: oblique;
+    font-size:13px;
+    list-style-type: none;
+}
+.experience-li2{
+    line-height: 150%;
+    list-style-type: none;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*Skill bars*/
+.bar-graph-horizontal {
+    max-width:100%
+}
+
+.bar-graph-horizontal > div {
+    float: left;
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+.bar-graph-horizontal .bar {
+    border-radius: 3px;
+    height: 10px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    width: 0;
+}
+
+.bar-graph-one .skill-java .bar {
+    background-color: #3e96f6;
+    -webkit-animation: show-bar-java 1.2s 0.1s forwards;
+    -moz-animation: show-bar-java 1.2s 0.1s forwards;
+    animation: show-bar-java 1.2s 0.1s forwards;
+}
+
+.bar-graph-one .skill-python .bar {
+    background-color: #3e96f6;
+    -webkit-animation: show-bar-python 1.2s 0.1s forwards;
+    -moz-animation: show-bar-python 1.2s 0.1s forwards;
+    animation: show-bar-python 1.2s 0.1s forwards;
+}
+
+.bar-graph-one .skill-scala .bar {
+    background-color: #3e96f6;
+    -webkit-animation: show-bar-scala 1.2s 0.2s forwards;
+    -moz-animation: show-bar-scala 1.2s 0.2s forwards;
+    animation: show-bar-scala 1.2s 0.2s forwards;
+}
+
+.bar-graph-one .skill-c\/c\+\+ .bar {
+    background-color: #3e96f6;
+    -webkit-animation: show-bar-c 1.2s 0.2s forwards;
+    -moz-animation: show-bar-c 1.2s 0.2s forwards;
+    animation: show-bar-c 1.2s 0.2s forwards;
+}
+
+.bar-graph-one .skill-html\/css .bar {
+    background-color: #3e96f6;
+    -webkit-animation: show-bar-html 1.2s 0.3s forwards;
+    -moz-animation: show-bar-html 1.2s 0.3s forwards;
+    animation: show-bar-html 1.2s 0.3s forwards;
+}
+
+.bar-graph-one .skill-javascript .bar {
+    background-color: #3e96f6;
+    -webkit-animation: show-bar-javascript 1.2s 0.3s forwards;
+    -moz-animation: show-bar-javascript 1.2s 0.3s forwards;
+    animation: show-bar-javascript 1.2s 0.3s forwards;
+}
+
+@-webkit-keyframes show-bar-java {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 85%;
+    }
+}
+
+@-webkit-keyframes show-bar-python {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 80%;
+    }
+}
+
+@-webkit-keyframes show-bar-scala {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 85%;
+    }
+}
+
+@-webkit-keyframes show-bar-c {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 70%;
+    }
+}
+
+@-webkit-keyframes show-bar-html {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 75%;
+    }
+}
+
+@-webkit-keyframes show-bar-javascript {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 70%;
+    }
+}
+
+/* waves */
+.ocean {
+    height: 15%;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+    display:none;
+}
+
+.wave {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%23003F7C'/%3E%3C/svg%3E");
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(2) {
+    bottom: 0;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.5;
+}
+
+.wave:nth-of-type(3) {
+    bottom: 0;
+    animation: wave 20s -1s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes wave {
+    0% {transform: translateX(0);}
+    50% {transform: translateX(-25%);}
+    100% {transform: translateX(-50%);}
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1920px) {
+    .about{
+        height:80%;
+    }
+    div.ocean{
+        display: flex;
+    }
+    .navigation{
+        width: 10rem;
+    }
+    .navigation button{
+        font-size: 20px;
+    }
+    .experience .row{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .experience .row img{
+        width: 260px;
+        height:260px;
+    }
+}
+

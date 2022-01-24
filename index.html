@@ -1,168 +1,187 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>Gamedev Canvas Workshop</title>
-    <style>
-        * { padding: 0; margin: 0; }
-        canvas { background: #eee; display: block; margin: 0 auto; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/image/favicon.png" rel="icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script  src="main.js"></script>
+    <script src="https://kit.fontawesome.com/0d7529f2db.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
-<canvas id="myCanvas" width="1200" height="600"></canvas>
+<div class="ocean">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+</div>
 
-<script>
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    var paddleHeight = 30;
-    var paddleWidth = 10;
-    var paddleX = (canvas.width-paddleWidth)/2;
-    var paddleY = (canvas.height-paddleHeight)/2;
-    var rightPressed = false;
-    var leftPressed = false;
-    var upPressed = false;
-    var downPressed = false;
-    var brickRowCount = 2;
-    var brickColumnCount = 3;
-    // var brickWidth = 267;
-    // var brickHeight = 200;
-    // var brickPadding = 200;
-    // var brickOffsetTop = 0;
-    // var brickOffsetLeft = 0;
+<ul class="navigation">
+    <div class="dropdown">
+        <button class="dropbtn"><i class="fas fa-bars fa-2x"></i></button>
+        <div class="dropdown-content">
+            <button onclick="show('home')">Home</button>
+            <button onclick="show('about')">About</button>
+            <button onclick="show('experience')";>Experience</button>
+        </div>
+    </div>
+</ul>
 
-    var bricks = [];
-    for(var c=0; c<brickColumnCount; c++) {
-        bricks[c] = [];
-        for(var r=0; r<brickRowCount; r++) {
-            bricks[c][r] = { x: 0, y: 0 };
-        }
-    }
+<div class="main_place" id="main_place" >
+    <div class="home">
+        <h1>Hello! My name is Changho Sung</h1>
+        <h1>Welcome to my Website!</h1>
+        <div class="socials">
+            <a href="https://github.com/kylesung0520" target="_blank"><i class="fab fa-github fa-4x" title="Github"></i></a>
+            <a href="https://www.linkedin.com/in/kylesung0520" target="_blank"><i class="fab fa-linkedin fa-4x" title="Linkedin"></i></a>
+            <a href="assets/Changho%20Sung.pdf" target="_blank"><i class="fas fa-file fa-4x" title="Resume"></i></a>
+        </div>
+    </div>
+</div>
 
-    document.addEventListener("keydown", keyDownHandler, false);
-    document.addEventListener("keyup", keyUpHandler, false);
+<div id="home" style="display: none;">
+    <div class="home">
+        <h1>Hello! My name is Changho Sung</h1>
+        <h1>Welcome to my Website!</h1>
+        <div class="socials">
+            <a href="https://github.com/kylesung0520"><i class="fab fa-github fa-4x" title="Github"></i></a>
+            <a href="https://www.linkedin.com/in/kylesung0520"><i class="fab fa-linkedin fa-4x" title="Linkedin"></i></a>
+            <a href="assets/Resume/Changho%20Sung.pdf"><i class="fas fa-file fa-4x" title="Resume"></i></a>
+        </div>
+    </div>
+</div>
 
-    function keyDownHandler(e) {
-        if(e.keyCode == 37) {
-            leftPressed = true;
-        }
-        else if(e.keyCode == 38){
-            upPressed = true;
-        }
-        else if(e.keyCode == 39) {
-            rightPressed = true;
-        }
-        else if(e.keyCode == 40) {
-            downPressed = true;
-        }
-    }
-    function keyUpHandler(e) {
-        if(e.keyCode == 37) {
-            leftPressed = false;
-        }
-        else if(e.keyCode == 38){
-            upPressed = false;
-        }
-        else if(e.keyCode == 39) {
-            rightPressed = false;
-        }
-        else if(e.keyCode == 40) {
-            downPressed = false;
-        }
-    }
+<div id="about" style="display:none;">
+    <div class="about">
+        <h2 style="margin-bottom: 2%;">About</h2>
+        <div class="row">
+            <div class="about-column1" >
+                <img src="assets/image/profile-img.jpg">
+            </div>
+            <div class="about-column2" >
+                <ul>
+                    <li><strong>Name: Changho Sung</strong></li>
+                    <li><strong>Birth: 05/20/1997</strong></li>
+                    <li><strong>Degree: Bachelor of Science, University at Buffalo</strong></li>
+                    <li><strong>Major: Computer Science</strong></li>
+                </ul>
+            </div>
+        </div>
+        <div class="skills" style="margin-top: 3%;">
+            <div class="row">
+                <div class="skills-column">
+                    <section class="bar-graph bar-graph-horizontal bar-graph-one">
+                        <div class="skill-java">
+                            <h5>Java - 85%</h5>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="skill-scala">
+                            <h5>Scala - 85%</h5>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="skill-html/css">
+                            <h5>HTML/CSS - 75%</h5>
+                            <div class="bar"></div>
+                        </div>
+                    </section>
+                </div>
+                <div class="skills-column" >
+                    <section class="bar-graph bar-graph-horizontal bar-graph-one">
+                        <div class="skill-python">
+                            <h5>Python - 80%</h5>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="skill-c/c++">
+                            <h5>C/C++ - 70%</h5>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="skill-javascript">
+                            <h5>JavaScript - 70%</h5>
+                            <div class="bar"></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    function collisionDetection() {
-        for(var c=0; c<brickColumnCount; c++) {
-            for(var r=0; r<brickRowCount; r++) {
-                var b = bricks[c][r];
-                if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
-                    dy = -dy;
-                }
-            }
-        }
-    }
-
-    function drawPaddle() {
-        ctx.beginPath();
-        ctx.rect(paddleX, paddleY, paddleWidth, paddleHeight);
-        ctx.fillStyle = "#0095DD";
-        ctx.fill();
-        ctx.closePath();
-    }
-
-    // var brickRowCount = 2;
-    // var brickColumnCount = 3;
-    var brickWidth = 267;
-    var brickHeight = 200;
-    var brickPadding = 200;
-    var brickOffsetTop = 0;
-    var brickOffsetLeft = 0;
-    function drawBricks() {
-        for(var c=0; c<brickColumnCount; c++) {
-            for(var r=0; r<brickRowCount; r++) {
-                var brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
-                var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
-                bricks[c][r].x = brickX;
-                bricks[c][r].y = brickY;
-                ctx.beginPath();
-                ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                ctx.fillStyle = "#0095DD";
-                ctx.fill();
-                ctx.closePath();
-            }
-        }
-    }
-
-    function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawPaddle();
-        //collisionDetection();
-        drawBricks();
-
-        if(rightPressed && paddleX < canvas.width-paddleWidth) {
-            if(paddleY >= 200 && paddleY <= 370){
-                paddleX += 2;
-            }
-            else{
-                if((paddleX >= 267 && paddleX+2 <= 457) || (paddleX >= 734 && paddleX+2 <= 924)){
-                    paddleX += 2;
-                }
-            }
-        }
-        else if(leftPressed && paddleX > 0) {
-            if(paddleY > 200 && paddleY < 370){
-                paddleX -= 2;
-            }
-            else{
-                if((paddleX-2 >= 267 && paddleX <= 457) || (paddleX-2 >= 734 && paddleX <= 924)){
-                    paddleX -= 2;
-                }
-            }
-        }
-        else if(upPressed && paddleY > 0) {
-            if((paddleX >= 267 && paddleX <= 457) || (paddleX >= 734 && paddleX <= 924)){
-                paddleY -= 3;
-            }
-            else{
-                if(paddleY - 3 >= 200){
-                    paddleY -=3 ;
-                }
-            }
-        }
-        else if(downPressed && paddleY < canvas.height-paddleHeight) {
-            if((paddleX >= 267 && paddleX <= 457) || (paddleX >= 734 && paddleX <= 924)){
-                paddleY += 3;
-            }
-            else{
-                if(paddleY + 3 <= 370){
-                    paddleY +=3 ;
-                }
-            }
-        }
-    }
-
-    setInterval(draw, 10);
-</script>
-
+<div id="experience" style="display:none;">
+    <div class="experience">
+        <h2>Experience</h2>
+        <div class="row">
+            <div class="experience-column1">
+                <img src="assets/image/UB_Marketplace.jpg" style="border-style: solid;">
+            </div>
+            <div class="experience-column2">
+                <ul class="experience-ul">
+                    <h6><strong>UB Marketplace</strong></h6>
+                    <li class="experience-li">
+                        Java, React, MongoDB, Docker, Heroku
+                    </li>
+                    <li class="experience-li2">
+                        A simple marketplace web application
+                    </li>
+                    <a href="https://github.com/kylesung0520/UB_Marketplace_CSE442" target="_blank">
+                        <i class="fab fa-github fa-2x" title="Github" style="margin-top:15px;"></i>
+                    </a>
+                </ul>
+            </div>
+            <div class="experience-column1">
+                <img src="assets/image/Simple%20Social%20Media.jpg" style="border-style: solid;">
+            </div>
+            <div class="experience-column2">
+                <ul class="experience-ul">
+                    <h6><strong>Simple Social Media</strong></h6>
+                    <li class="experience-li">
+                        Python, Flask, MongoDB, Docker
+                    </li>
+                    <li class="experience-li2">
+                        A Simple Social Media
+                    </li>
+                    <a href="https://github.com/kylesung0520/CSE312_Project" target="_blank">
+                        <i class="fab fa-github fa-2x" title="Github" style="margin-top:15px;"></i>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="experience-column1">
+                <img src="assets/image/NBBL.jpg" style="border-style: solid;">
+            </div>
+            <div class="experience-column2">
+                <ul class="experience-ul">
+                    <h6><strong>The New Bottle Bill</strong></h6>
+                    <li class="experience-li">
+                        Solidity, HTML/CSS, JavaScript, Ganache
+                    </li>
+                    <li class="experience-li2">
+                        A Bottle Bill web application using ERC-20 Token
+                    </li>
+                    <a href="https://github.com/kylesung0520/CSE426" target="_blank">
+                        <i class="fab fa-github fa-2x" title="Github" style="margin-top:15px; color:black"></i>
+                    </a>
+                </ul>
+            </div>
+            <div class="experience-column1">
+                <img src="assets/image/ROKA.jpg" style="border-style: solid;">
+            </div>
+            <div class="experience-column2">
+                <ul class="experience-ul">
+                    <h6><strong>Military Service</strong></h6>
+                    <li class="experience-li">
+                        Department of Transportation, Republic of Korea Army
+                    </li>
+                    <li class="experience-li2">
+                        Responsible for administrative affairs related to the overall vehicle operation of my unit
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
+
+
